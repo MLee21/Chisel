@@ -33,9 +33,14 @@ class ChiselTest < MiniTest::Test
 
 	def test_paragraph_has_html_tags
 		chisel = Chisel.new
-		p2 = '"You just *have* to try the cheesecake," he said. "Ever since it appeared in
- 		**Food & Wine** this place has been packed every night."'
- 		assert_equal '<p>"You just *have* to try the cheesecake," he said. "Ever since it appeared in
- 		**Food & Wine** this place has been packed every night."</p>', chisel.paragraph
+		text = "This is the text."
+ 		assert_equal "<p>This is the text.</p>", chisel.paragraph(text)
 	end	
+
+	def test_asterisks_are_substituted
+		chisel = Chisel.new
+		text = "This is *the* **Text**."
+ 		assert_equal "This is <em>the</em> <strong>Text</strong>.", chisel.asterisks(text)
+	end	
+
 end
