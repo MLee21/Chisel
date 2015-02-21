@@ -12,8 +12,9 @@ require_relative "chisel_refactored"
 
     def test_method_that_identifies_h1_to_h6
         chisel = Chisel.new
-        text = "#Test,test ##Test,test ###Test,Test"
-        assert_equal ("<h1>Test,test</h1> <h2>Test,test</h2> <h3>Test,test</h3>"), chisel.indentify_md_marker(text)
+        text = "#Test,test"
+        md_marker = "#"
+        assert_equal ("<h1>Test,test</h1>"), chisel.identify_md_marker(text,md_marker)
     end
 
 

@@ -16,8 +16,8 @@ class ChiselTest < MiniTest::Test
 
 	def test_header_1_is_substituted
 		chisel = Chisel.new
-		document = '#This is my text.'
-		assert_equal '<h1>This is my text.</h1>', chisel.header_1(document)
+		document = '#My Life in Desserts'
+		assert_equal '<h1>My Life in Desserts</h1>', chisel.header_1(document)
 	end	
 
 	def test_header_2_is_substituted
