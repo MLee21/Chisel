@@ -1,21 +1,14 @@
 class Chisel
 
-
-  def identify_md_marker(text,md_marker,open_tag)
-    identified = false
-    while text.start_with?(md_marker)
-      text.delete(md_marker).sub(open_tag)
-      
-
-
-
-  end
-end
-
-
-
-
-
+    def delete_and_sub_md_markers(text,md_marker,open_tag,close_tag)
+      if text.include?(md_marker)
+         text.delete!(md_marker).insert(0,open_tag)
+         text + close_tag
+       else
+         text
+       end
+    end 
+ 
 
 
 
